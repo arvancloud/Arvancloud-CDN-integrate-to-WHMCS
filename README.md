@@ -1,1 +1,1 @@
-this is a first readme file 
+this is a sample README.d file 
