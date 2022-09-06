@@ -1,0 +1,36 @@
+{
+  "name": "majeed21/arvancdn",
+  "type": "project",
+  "description": "arvan cdn addon module",
+  "keywords": [
+    "whmcs",
+    "arvan CDN",
+    "addon module"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.whmcs.com/arvan_cdn",
+  "authors": [
+    {
+      "name": "majid mohammadian",
+      "email": "majeedmohammadian@gmail.com",
+      "homepage": "http://www.whmcs.com/arvancdn",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "majeedmohammadian@gmail.com",
+    "forum": "http://forums.whmcs.com/",
+    "wiki": "http://docs.whmcs.com/"
+  },
+  "require": {
+    "mashape/unirest-php": "3.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "@stable"
+  },
+  "autoload": {
+    "psr-4": {
+      "WHMCS\\Module\\Addon\\Arvancdn\\": "/"
+    }
+  }
+}
