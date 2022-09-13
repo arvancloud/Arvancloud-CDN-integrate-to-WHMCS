@@ -1,0 +1,73 @@
+.header-page {
+    font-weight: bold;
+    background-color: #20c5ba;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.update-module {
+    border: 1px dashed #20c5ba;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    border-radius: 4px;
+}
+
+.update-module-name {
+    font-weight: bold;
+}
+
+.update-module-button {
+    background-color: #20c5ba;
+    border: 0;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bolder;
+    direction: ltr;
+}
+
+.update-result {
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    padding: 20px 15px;
+}
+
+.step-upgrade {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 10px;
+}
+.step-upgrade > div {}
+.step-upgrade > div:first-child {
+    font-weight: bold;
+}
+.step-upgrade > div:last-child {}
+.step-upgrade > div:last-child > img {
+    width: 20px;
+}
+
+div.update_loading {
+    background-image: url(../img/loading.svg);
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
+
+div.update_check {
+    background-image: url(../img/check.svg);
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
+
+div.update_error {
+    background-image: url(../img/error.svg);
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
