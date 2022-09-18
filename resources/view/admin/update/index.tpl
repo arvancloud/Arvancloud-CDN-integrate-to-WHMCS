@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="{$resource_link}css/update_module.css">
-<script src="{$resource_link}js/update_module.js"></script>
-
 <h2 class="header-page">- {$__['admin']['update']['title']}</h2>
 
 {if empty($updates)}

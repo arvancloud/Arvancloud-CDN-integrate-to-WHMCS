@@ -5,6 +5,7 @@
     border-radius: 4px;
 }
 
+/* update page */
 .update-module {
     border: 1px dashed #20c5ba;
     display: flex;
@@ -70,4 +71,36 @@ div.update_error {
     background-repeat: no-repeat;
     width: 30px;
     height: 30px;
+}
+
+/* dashboard */
+.dashboard-quick {
+    width: 45%;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+.dashboard-quick > h3 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+.dashboard-quick > div {}
+.dashboard-quick > div > a {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    margin: 5px;
+    padding: 37px 5px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: 0 0 7px 1px #ddd;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.dashboard-quick > div > a:hover {
+    border-color: #20c5ba;
+    box-shadow: 0 0 7px 1px #20c5ba;
+    transition: all 0.3s;
 }
