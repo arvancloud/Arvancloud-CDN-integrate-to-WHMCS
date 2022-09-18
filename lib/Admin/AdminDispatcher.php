@@ -40,6 +40,8 @@ class AdminDispatcher
             $template->assign('resource_link', '/modules/addons/arvancdn/resources/');
             $template->assign('module_link', $vars['modulelink']);
             $template->assign('token', $vars['token']);
+            $template->assign('ns1', $vars['ns1']);
+            $template->assign('ns2', $vars['ns2']);
 
             // set language
             $template->assign('__', $vars['_lang']);
