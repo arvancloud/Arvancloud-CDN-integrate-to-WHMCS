@@ -5,11 +5,8 @@
  * Arvan CDN Addon module for WHMCS
  */
 
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule;
+use Illuminate\Database\Capsule\Manager as Capsule;
 use WHMCS\Module\Addon\Arvancdn\Admin\AdminDispatcher;
-use WHMCS\Module\Addon\Arvancdn\Client\ClientDispatcher;
-use Exception;
 
 /**
  * Require any libraries needed for the module to function.
@@ -39,7 +36,7 @@ function arvancdn_config()
         'description' => 'Arvan CDN Addon module for WHMCS',
         'author' => 'majid mohammadian',
         'language' => 'english',
-        'version' => '1.0',
+        'version' => '1.1',
         'fields' => [
             'token' => [
                 'FriendlyName' => 'Token',
@@ -47,6 +44,20 @@ function arvancdn_config()
                 'Size' => '150',
                 'Default' => '',
                 'Description' => 'Arvan Cloud API Token',
+            ],
+            'ns1' => [
+                'FriendlyName' => 'NS1',
+                'Type' => 'text',
+                'Size' => '150',
+                'Default' => '',
+                'Description' => 'Arvan NS1',
+            ],
+            'ns2' => [
+                'FriendlyName' => 'NS2',
+                'Type' => 'text',
+                'Size' => '150',
+                'Default' => '',
+                'Description' => 'Arvan NS2',
             ],
         ]
     ];
@@ -108,17 +119,19 @@ function arvancdn_upgrade($vars)
 {
     $currentlyInstalledVersion = $vars['version'];
 
-    /*if ($currentlyInstalledVersion < 1.1) {
-        Capsule::schema()->table('mod_addonexample', function($table) {
-            $table->text('demo2');
-        });
-    }
+    if ($currentlyInstalledVersion < 1.1) {
+        if (!Capsule::schema()->hasTable('arvancdn_domains')) {
+            Capsule::schema()->create('arvancdn_domains', function ($table) {
+                $table->bigIncrements('id');
 
-    if ($currentlyInstalledVersion < 1.2) {
-        Capsule::schema()->table('mod_addonexample', function($table) {
-            $table->text('demo3');
-        });
-    }*/
+                $table->unsignedBigInteger('user_id')->index();
+                $table->string('domain')->index();
+
+                $table->softDeletes();
+                $table->timestamps();
+            });
+        }
+    }
 }
 
 /**
@@ -144,18 +157,19 @@ function arvancdn_output($vars)
  * @param array $vars
  *
  * @return string
+ * @throws SmartyException
  */
 function arvancdn_sidebar($vars)
 {
-    // Get common module parameters
-    $modulelink = $vars['modulelink'];
-    $_lang = $vars['_lang'];
+    $template = new Smarty();
 
-    // Get module configuration parameters
-    $token = $vars['token'];
+    $template->assign('resource_link', '/modules/addons/arvancdn/resources/');
+    $template->assign('module_link', $vars['modulelink']);
 
-    $sidebar = '<p>Sidebar output HTML goes here</p>';
-    return $sidebar;
+    // set language
+    $template->assign('__', $vars['_lang']);
+
+    return $template->fetch(ADDON_ARVANCDN_TEMPLATE . 'admin/common/sidebar.tpl');
 }
 
 /**

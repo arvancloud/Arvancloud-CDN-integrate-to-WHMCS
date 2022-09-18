@@ -4,6 +4,21 @@
  */
 $_ADDONLANG = [
     'admin' => [
+        'sidebar' => [
+            'title' => 'Arvan CDN Module',
+            'links' => [
+                'dashboard' => 'Dashboard',
+                'update' => 'Update',
+            ]
+        ],
+        'dashboard' => [
+            'title' => 'Dashboard Module',
+            'quick' => [
+                'title' => 'Quick Option',
+                'dashboard' => 'Dashboard',
+                'update' => 'Update'
+            ]
+        ],
         'update' => [
             'title' => 'Update Module',
             'table' => [

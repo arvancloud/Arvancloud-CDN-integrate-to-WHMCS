@@ -16,7 +16,7 @@ class Update extends Controller
     /**
      * Index action.
      *
-     * @param array $vars
+     * @param array $array
      *
      * @return void
      */

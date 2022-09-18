@@ -8,14 +8,20 @@ namespace WHMCS\Module\Addon\Arvancdn\Admin\Controller;
 class Dashboard {
 
     /**
-     * Index action.
+     * Dashboard action.
      *
-     * @param array $vars Module configuration parameters
+     * @param array $array
      *
-     * @return string
+     * @return void
      */
-    public function index(array $vars): string
+    public function index(array $array): void
     {
-        return '';
+        $array = func_get_args();
+
+        // set argument class
+        $vars = $array[0];
+        $template = $array[1];
+
+        $template->display(ADDON_ARVANCDN_TEMPLATE . 'admin/dashboard/index.tpl');
     }
 }
